@@ -17,6 +17,7 @@ import ContentCopy from 'material-ui/svg-icons/content/content-copy';
 import Assignment from 'material-ui/svg-icons/action/assignment';
 import AttachMoney from 'material-ui/svg-icons/editor/attach-money';
 import CheckCircle from 'material-ui/svg-icons/action/check-circle';
+import Arrow from 'material-ui/svg-icons/navigation/arrow-downward';
 import Toggle from 'material-ui/Toggle';
 import FlatButton from "material-ui/FlatButton";
 
@@ -28,7 +29,7 @@ export default class Home extends React.PureComponent {
     const headerStyle={
       display:"flex",
       minHeight:"100vh",
-      background:"url(http://h4z.it/Image/644192_betten-40145.jpg)",
+      background:"url(http://localhost:8000/terrah-holly-241981.jpg)",
       backgroundSize:"cover",
       width:"100%",
       flexDirection:"column",
@@ -37,13 +38,13 @@ export default class Home extends React.PureComponent {
     }
     const navBar={
       display:"flex",
-      flexDirection:"row",
+      flexDirection:"column",
       width:"100%",
-      height:"100px",
+      height:"124px",
       justifyContent:"space-between",
       position:"fixed",
       top:"0",
-      background:"rgba(0,0,0,.5)",
+
     }
     const imageStyle={
       display:"flex",
@@ -57,7 +58,7 @@ export default class Home extends React.PureComponent {
       color:"#ffffff",
       backgroundSize:"100% 100%",
       marginLeft:"50px",
-      fontSize:"30px"
+      fontSize:"30px",
 
     }
     const navLink={
@@ -66,18 +67,21 @@ export default class Home extends React.PureComponent {
       flexDirection:"column",
       padding:"15px",
       marginTop:"25px",
-      color:"#000000",
+      color:"#555555",
       fontSize:"18px",
-      fontFamily:"Roboto, sans serif",
-      color:"#ffffff"
+      fontFamily:"Open Sans",
+      fontWeight:"bold",
+
     }
     const boxOne={
       display:"flex",
       flexDirection:"column",
-      width:"300px",
-      height:"300px",
+      width:"50%",
+      height:"700px",
       color:"#F28705",
       margin:"0 auto",
+      marginTop:"200px",
+
 
     }
     const heading={
@@ -85,112 +89,114 @@ export default class Home extends React.PureComponent {
       fontSize:"25px",
       justifyContent:"center",
       color:"#ffffff",
-      fontFamily:"Roboto, sans serif",
+      fontFamily:"Berkshire Swash",
       padding:"10px",
       marginTop:"20px"
-
-
     }
     const parStyle1={
+      width:"100%",
+      borderRadius:"5px",
+      background:"rgba(0,0,0,.0)",
      display:"flex",
+     flexDirection:"column",
      fontSize:"15px",
-     justifyContent:"center",
      color:"#ffffff",
      fontFamily:"Roboto, sans serif",
-     padding:"10px",
-     marginTop:"20px"
-
+     marginBottom:"250px",
+     padding:"25px"
     }
-    const paragraphStyle={
-     display:"flex",
-     fontSize:"15px",
-     justifyContent:"center",
-     color:"#ffffff",
-     fontFamily:"Roboto, sans serif",
-     textAlign:"center"
 
-
-    }
     const mainStyle={
       display:"flex",
       flexDirection:"row",
       justifyContent:"space-around",
       alignItems:"space-around",
-      marginTop:"50px"
-
-
-
-    }
-    const boxTwo={
-      width:"300px",
-      height:"300px",
-      background:"url(http://g01.a.alicdn.com/kf/HTB1.Y6AHVXXXXXKXVXXq6xXFXXXI/1-22-Joy-DIY-Blank-Kraft-paper-cardboard-boxes-for-gifts-packaging-sliding-gift-drawer-boxes.jpg_220x220.jpg)",
-      backgroundSize:"100% 100%"
+      marginTop:"50px",
+      height:"500px",
 
 
     }
-    const boxThree={
-      width:"300px",
-      height:"300px",
-      background:"url()",
+    const pescatarian={
 
-
-
-    }
-    const boxFour={
-      width:"300px",
-      height:"300px",
-      background:"url()",
-
-
-
+      width:"600px",
+      backgroundImage:"url(http://localhost:8000/Brown_Trout_Rising_grande.jpg)",
+      backgroundRepeat:"no-repeat",
+      
     }
     const h1={
-      fontFamily:"Roboto, sans serif",
-      fontSize:"50px"
+      fontFamily:"Berkshire Swash",
+      textShadow:"2px 2px 2px #F1A524",
+      fontSize:"5em",
+      color:"#DB2C28",
+    }
+    const paragraphStyle={
+     display:"flex",
+     fontSize:"2em",
+     justifyContent:"center",
+     color:"#F1A524",
+     fontFamily:"Patrick Hand SC",
+     textAlign:"start",
+     fontWeight:"bold",
+    }
+    const take={
+      height:"20px",
+      fontSize:"1.5em",
+      color:"#D2D9B8",
+      fontFamily:"Roboto",
+      textAlign:"center",
+      pddingTop:"200px",
+      fontweight:"bold",
+    }
+    const arrow={
+      height:"50px",
+      color:"#D2D9B8",
+    }
+    const parallax={
+      backgroundImage: "url(http://localhost:8000/pescatarian.jpg)",
+    minHeight: "600px",
+    backgroundAttachment: "fixed",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize:"cover",
+
     }
     return (
       <div>
         <Helmet title="Home" meta={[ { name: 'description', content: 'Description of Home' }]}/>
-        <div>
+
 
         <Responsive minDeviceWidth={1024}>
-          <div>
           <header style={headerStyle}>
             <nav style={navBar}>
-              <div style={logoStyle}>SWASH</div>
-              <Link to="/Home" style={navLink}>Home</Link>
-              <Link to="/Products" style={navLink}>Products</Link>
-              <Link to="/About" style={navLink}>About</Link>
-              <Link to="/Contact" style={navLink}>Contact</Link>
-            </nav>
-          <div style={boxOne}>
-            <div style={heading}></div>
-            <div style={parStyle1}></div>
-            <h1 style={h1}>Swashbuckler:</h1>
-            <p style={paragraphStyle}>Swaggering or daring soldier or adventurer.</p>
-          </div>
-          </header>
-          </div>
+              <div style={logoStyle}><img src="http://localhost:8000/unnamed.png"/></div>
 
+            </nav>
+            <div style={boxOne}>
+              <div style={heading}></div>
+              <div style={parStyle1}>
+                <h1 style={h1}>Swashbuckler:</h1>
+                <p style={paragraphStyle}>( ˈswôSHˌbək(ə)lər,ˈswäSHˌbək(ə)lər )<br/>
+                Swaggering or daring soldier or adventurer.
+                <br/>"swash" (archaic: to swagger with a drawn sword) and <br/>"buckler" (a small-shield gripped in the fist) dating from the 16th century.
+                </p>
+              </div>
+              <div style={take}>
+                take a gander. <br/> <Arrow style={arrow}/>
+              </div>
+
+            </div>
+          </header>
 
           <div style={mainStyle}>
-            <div style={boxTwo}></div>
-            <div style={boxThree}></div>
-            <div style={boxFour}></div>
+            <div style={pescatarian}>Latter-Day Swashbucklers
+            </div>
           </div>
-
-
-
-
-
-
-
+          <div style={parallax}></div>
 
         </Responsive>
-        </div>
-
       </div>
+
+
     );
   }
 }
