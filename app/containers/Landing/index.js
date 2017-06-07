@@ -24,7 +24,7 @@ import FlatButton from "material-ui/FlatButton";
 
 
 
-export default class Home extends React.PureComponent {
+export default class Landing extends React.PureComponent {
   scrollDown=(num)=>{
     window.scrollBy(0,num);
   }
@@ -98,9 +98,9 @@ export default class Home extends React.PureComponent {
     }
     const h1={
       fontFamily:"Berkshire Swash",
-      textShadow:"2px 2px 2px #F1A524",
+      textShadow:"2px 2px 2px #000000",
       fontSize:"5em",
-      color:"#DB2C28",
+      color:"#F1A524",
     }
     const parStyle1={
       width:"100%",
@@ -111,7 +111,7 @@ export default class Home extends React.PureComponent {
      fontSize:"15px",
      color:"#ffffff",
      fontFamily:"Roboto, sans serif",
-     marginBottom:"30px",
+     marginBottom:"0px",
      padding:"25px"
     }
     const take={
@@ -333,7 +333,7 @@ export default class Home extends React.PureComponent {
      display:"flex",
      fontSize:"2em",
      justifyContent:"center",
-     color:"#81D6C1",
+     color:"#CEDAF5",
      fontFamily:"Patrick Hand SC",
      textAlign:"start",
      fontWeight:"bold",
@@ -418,12 +418,12 @@ export default class Home extends React.PureComponent {
       width:"100%",
       display:"flex",
       flexDirection:"row",
+      fontSize:"5em"
     }
-    const buy={
-      height:"100px",
-      width:"100px",
-      borderRadius:"6px",
-      background:"#ffffff"
+    const contin={
+      fontDecoration:"none",
+      fontFamily:"Permanent Marker",
+      textAlign:"center",
     }
 
 
@@ -441,15 +441,15 @@ export default class Home extends React.PureComponent {
             <div style={boxOne}>
               <div style={heading}></div>
               <div style={parStyle1}>
-                <h1 style={h1}>Swashbuckler:</h1>
-                <p style={paragraphStyle}>( ˈswôSHˌbək(ə)lər,ˈswäSHˌbək(ə)lər )<br/>
-                Swaggering or daring soldier or adventurer.
-                <br/>"swash" (archaic: to swagger with a drawn sword) and <br/>"buckler" (a small-shield gripped in the fist) dating from the 16th century.
+                <h1 style={h1}>Premium outdoor clothing for The modern day Swashbuckler</h1>
+                <p style={paragraphStyle}>All types.<br/>
+
+                <br/>
                 </p>
                 <div style={fullPage}>
                   <img style={tentFPR} src="http://localhost:8000/001-tent.png" onTouchTap={()=>this.scrollDown(2600)}/>
                   <img style={packFPR} src="http://localhost:8000/002-backpack.png" onTouchTap={()=>this.scrollDown(1800)}/>
-                  <img style={poleFPR} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
+                  <img style={poleFPR} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(800)}/>
                 </div>
               </div>
 
@@ -462,7 +462,7 @@ export default class Home extends React.PureComponent {
             <div style={pescatarian}>
               <div style={overlay}>
                 <div style={text}>
-                  Pescatarian Box
+                  Pescatarian
                 </div>
               </div>
             </div>
@@ -477,16 +477,16 @@ export default class Home extends React.PureComponent {
               -Charles Waterman
               </span>
             </div>
-            <div style={buy}>
+
               <img style={poleFPR2} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
-            </div>
+
           </div>
 
           <div style={mainStyle}>
             <div style={trekker}>
               <div style={overlayT}>
                 <div style={textT}>
-                  Trekker Box
+                  WildStride
                 </div>
               </div>
             </div>
@@ -506,7 +506,7 @@ export default class Home extends React.PureComponent {
             <div style={homeBase}>
               <div style={overlayH}>
                 <div style={textH}>
-                  Home Base Box
+                  SedgeStud
                 </div>
               </div>
             </div>
@@ -515,16 +515,119 @@ export default class Home extends React.PureComponent {
           <div style={parallaxHome}>
             <div style={homeBox}>
               <span style={homeText}>
-              There's no wifi in the forest, but we promise you'll find a better connection.
+                There's no wifi in the forest, but we promise you'll find a better connection.
+              </span>
+            </div>
+              <img style={tentFPR2} src="http://localhost:8000/001-tent.png" />
+          </div>
+          <div style={cont}>
+            <div style={logoStyle}>
+              <img src="http://localhost:8000/unnamed.png"/>
+            </div>
+            <Link style={contin}>
+              Continue to site...
+            </Link>
+          </div>
+
+        </Responsive>
+
+
+        <Responsive maxDeviceWidth={1023}>
+          <header style={headerStyle}>
+            <nav style={navBar}>
+              <div style={logoStyle}><img src="http://localhost:8000/unnamed.png"/></div>
+
+            </nav>
+            <div style={boxOne}>
+              <div style={heading}></div>
+              <div style={parStyle1}>
+                <h1 style={h1}>Premium outdoor clothing for The modern day Swashbuckler</h1>
+                <p style={paragraphStyle}>All types.<br/>
+
+                <br/>
+                </p>
+                <div style={fullPage}>
+                  <img style={tentFPR} src="http://localhost:8000/001-tent.png" onTouchTap={()=>this.scrollDown(2600)}/>
+                  <img style={packFPR} src="http://localhost:8000/002-backpack.png" onTouchTap={()=>this.scrollDown(1800)}/>
+                  <img style={poleFPR} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(800)}/>
+                </div>
+              </div>
+
+
+
+            </div>
+          </header>
+
+          <div style={mainStyle}>
+            <div style={pescatarian}>
+              <div style={overlay}>
+                <div style={text}>
+                  Pescatarian
+                </div>
+              </div>
+            </div>
+            <span style={pescText}>
+              for our fisherman
+            </span>
+          </div>
+          <div style={parallax}>
+            <div style={pescBox}>
+              <span style={pescText}>
+              "Most of the world is covered by water. A fisherman's job is simple: Pick out the best parts."<br/>
+              -Charles Waterman
               </span>
             </div>
 
-              <img style={tentFPR2} src="http://localhost:8000/001-tent.png" />
+              <img style={poleFPR2} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
 
           </div>
 
-          <div style={logoStyle}><img src="http://localhost:8000/unnamed.png"/></div>
+          <div style={mainStyle}>
+            <div style={trekker}>
+              <div style={overlayT}>
+                <div style={textT}>
+                  WildStride
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div style={parallaxTrek}>
+            <div style={trekBox}>
+              <span style={trekText}>
+              "The one who wonders, finds a new path"<br/>
+              -Norwegian Proverb
+              </span>
+            </div>
+            <img style={packFPR2} src="http://localhost:8000/002-backpack.png" onTouchTap={()=>this.scrollDown(1680)}/>
+          </div>
+
+          <div style={mainStyle}>
+            <div style={homeBase}>
+              <div style={overlayH}>
+                <div style={textH}>
+                  SedgeStud
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style={parallaxHome}>
+            <div style={homeBox}>
+              <span style={homeText}>
+                There's no wifi in the forest, but we promise you'll find a better connection.
+              </span>
+            </div>
+              <img style={tentFPR2} src="http://localhost:8000/001-tent.png" />
+          </div>
+          <div style={cont}>
+            <div style={logoStyle}>
+              <img src="http://localhost:8000/unnamed.png"/>
+            </div>
+            <Link style={contin}>
+              Continue to site...
+            </Link>
+          </div>
 
         </Responsive>
       </div>

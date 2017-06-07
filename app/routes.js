@@ -11,9 +11,9 @@ export default function createRoutes() {
   return [
       {
        path: '/',
-       name: 'home',
+       name: 'landing',
        getComponent(nextState, comMod) {
-         import('containers/Home')
+         import('containers/Landing')
            .then(loadModule(comMod))
            .catch(errorLoading);
        },
