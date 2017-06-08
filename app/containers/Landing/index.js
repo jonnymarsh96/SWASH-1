@@ -20,13 +20,90 @@ import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import Arrow from 'material-ui/svg-icons/navigation/arrow-downward';
 import Toggle from 'material-ui/Toggle';
 import FlatButton from "material-ui/FlatButton";
+import Dialog from 'material-ui/Dialog';
+
 
 
 
 
 export default class Landing extends React.PureComponent {
+
+  constructor(props){
+    super(props);
+    this.state={
+      open:false,
+      name:'',
+      email:'',
+      password:'',
+      signUpName:'',
+      signUpEmail:'',
+      signUpPassword:'',
+    }
+  }
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
+
+
   scrollDown=(num)=>{
     window.scrollBy(0,num);
+  }
+
+  handleName = (event) =>{
+    this.setState({
+      name:event.target.value
+    })
+    }
+  handleEmail = (event) =>{
+    this.setState({
+      email:event.target.value
+    })
+  }
+  handlePassword = (event) =>{
+    this.setState({
+      password:event.target.value
+    })
+  }
+  handleSignUpName = (event) =>{
+    this.setState({
+      name:event.target.value
+    })
+    }
+  handleSignUpEmail = (event) =>{
+    this.setState({
+      email:event.target.value
+    })
+  }
+  handleSignUpPassword = (event) =>{
+    this.setState({
+      password:event.target.value
+    })
+  }
+
+  signUp = () => {
+    var data = new FormData();
+    data.append("name", this.state.name);
+    data.append("email", this.state.email);
+    data.append("password", this.state.password);
+    fetch("http://localhost:8000/api/signUp", {
+      method:"post",
+      body:data
+    })
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(json){
+      if(json.success){
+        alert("success");
+      }
+      else if(json.error){
+      alert(json.error);
+      }
+    })
   }
   render() {
     const headerStyle={
@@ -41,12 +118,15 @@ export default class Landing extends React.PureComponent {
     }
     const navBar={
       display:"flex",
-      flexDirection:"column",
+      flexDirection:"row",
       width:"100%",
       height:"124px",
       justifyContent:"space-between",
       position:"absolute",
       top:"0",
+
+    }
+    const signIn={
 
     }
     const imageStyle={
@@ -55,13 +135,13 @@ export default class Landing extends React.PureComponent {
 
     }
     const logoStyle={
-      width:"550px",
-      height:"500px",
+      width:"200px",
+      height:"200px",
       marginTop:"30px",
       color:"#ffffff",
-      backgroundSize:"100% 100%",
+
       marginLeft:"50px",
-      fontSize:"30px",
+      fontSize:"300px",
 
     }
     const navLink={
@@ -168,6 +248,11 @@ export default class Landing extends React.PureComponent {
       left:"50%",
       transform:"translate(-50%, -50%)",
       textAlign:"center",
+      display:"flex",
+      flexDirection:"row",
+      justifyContent:"center",
+      alignItems:"center",
+
     }
     const pescatarian={
       position:"relative",
@@ -195,6 +280,10 @@ export default class Landing extends React.PureComponent {
       left:"50%",
       transform:"translate(-50%, -50%)",
       textAlign:"center",
+      display:"flex",
+      flexDirection:"row",
+      justifyContent:"center",
+      alignItems:"center",
     }
     const overlayT={
       position:"absolute",
@@ -225,6 +314,10 @@ export default class Landing extends React.PureComponent {
       left:"50%",
       transform:"translate(-50%, -50%)",
       textAlign:"center",
+      display:"flex",
+      flexDirection:"row",
+      justifyContent:"center",
+      alignItems:"center",
     }
     const overlayH={
       position:"absolute",
@@ -341,7 +434,7 @@ export default class Landing extends React.PureComponent {
 
     const parallax={
       backgroundImage: "url(http://localhost:8000/pescatarian.jpg)",
-    minHeight: "500px",
+    minHeight: "700px",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -352,7 +445,7 @@ export default class Landing extends React.PureComponent {
     }
     const parallaxTrek={
       backgroundImage: "url(http://localhost:8000/Thetrekker.jpg)",
-    minHeight: "500px",
+    minHeight: "700px",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -363,7 +456,7 @@ export default class Landing extends React.PureComponent {
     }
     const parallaxHome={
       backgroundImage: "url(http://localhost:8000/Homebase2.jpg)",
-    minHeight: "500px",
+    minHeight: "700px",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -414,7 +507,7 @@ export default class Landing extends React.PureComponent {
       marginLeft:"50px"
     }
     const cont={
-      height:"300px",
+      height:"100px",
       width:"100%",
       display:"flex",
       flexDirection:"row",
@@ -424,6 +517,66 @@ export default class Landing extends React.PureComponent {
       fontDecoration:"none",
       fontFamily:"Permanent Marker",
       textAlign:"center",
+    }
+    const copy={
+      fontSize:".4em",
+      marginTop:"-15px",
+      marginLeft:"7px",
+    }
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        style={button}
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        style={button}
+        keyboardFocused={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
+    const button={
+
+    }
+    const logIn={
+      height:"700px",
+      width:"100%",
+      display:"flex",
+      flexDirection:"column",
+      margin:"0 auto",
+
+
+    }
+    const email={
+      width:"80%",
+      height:"50px",
+      border:"1px solid #FFDC00",
+      borderRadius:"3px",
+      margin:"30px",
+    }
+    const name={
+      width:"80%",
+      height:"50px",
+      border:"1px solid #FFDC00",
+      borderRadius:"3px",
+      margin:"30px",
+
+    }
+    const password={
+      width:"80%",
+      height:"50px",
+      border:"1px solid #FFDC00",
+      borderRadius:"3px",
+      margin:"30px",
+    }
+    const submit={
+      width:"100px",
+      height:"50px",
+      border:"1px solid #FFDC00",
+      borderRadius:"3px",
+      margin:"30px",
+      color:"#000000"
     }
 
 
@@ -435,8 +588,13 @@ export default class Landing extends React.PureComponent {
         <Responsive minDeviceWidth={1024}>
           <header style={headerStyle}>
             <nav style={navBar}>
-              <div style={logoStyle}><img src="http://localhost:8000/unnamed.png"/></div>
-
+              <div style={logoStyle}><img src="http://localhost:8000/unnamed.png"/>
+              </div>
+              <div style={signIn} onTouchTap={this.handleOpen}>
+                Please Log In <img src="http://localhost:8000/icons/002-log.png"/>
+                  <br/>
+                Sign Up <img src="http://localhost:8000/icons/001-rope.png"/>
+              </div>
             </nav>
             <div style={boxOne}>
               <div style={heading}></div>
@@ -447,9 +605,9 @@ export default class Landing extends React.PureComponent {
                 <br/>
                 </p>
                 <div style={fullPage}>
-                  <img style={tentFPR} src="http://localhost:8000/001-tent.png" onTouchTap={()=>this.scrollDown(2600)}/>
-                  <img style={packFPR} src="http://localhost:8000/002-backpack.png" onTouchTap={()=>this.scrollDown(1800)}/>
-                  <img style={poleFPR} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(800)}/>
+                  <img style={tentFPR} src="http://localhost:8000/icons/001-tent.png" onTouchTap={()=>this.scrollDown(2600)}/>
+                  <img style={packFPR} src="http://localhost:8000/icons/002-backpack.png" onTouchTap={()=>this.scrollDown(1800)}/>
+                  <img style={poleFPR} src="http://localhost:8000/icons/003-spinning.png" onTouchTap={()=>this.scrollDown(800)}/>
                 </div>
               </div>
 
@@ -462,7 +620,7 @@ export default class Landing extends React.PureComponent {
             <div style={pescatarian}>
               <div style={overlay}>
                 <div style={text}>
-                  Pescatarian
+                  FisherFit <div style={copy}>&copy;</div>
                 </div>
               </div>
             </div>
@@ -478,7 +636,7 @@ export default class Landing extends React.PureComponent {
               </span>
             </div>
 
-              <img style={poleFPR2} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
+              <img style={poleFPR2} src="http://localhost:8000/icons/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
 
           </div>
 
@@ -486,7 +644,7 @@ export default class Landing extends React.PureComponent {
             <div style={trekker}>
               <div style={overlayT}>
                 <div style={textT}>
-                  WildStride
+                  WildStride <div style={copy}>&copy;</div>
                 </div>
               </div>
             </div>
@@ -499,14 +657,14 @@ export default class Landing extends React.PureComponent {
               -Norwegian Proverb
               </span>
             </div>
-            <img style={packFPR2} src="http://localhost:8000/002-backpack.png" onTouchTap={()=>this.scrollDown(1680)}/>
+            <img style={packFPR2} src="http://localhost:8000/icons/002-backpack.png" onTouchTap={()=>this.scrollDown(1680)}/>
           </div>
 
           <div style={mainStyle}>
             <div style={homeBase}>
               <div style={overlayH}>
                 <div style={textH}>
-                  SedgeStud
+                  SedgeStud  <div style={copy}>&copy;</div>
                 </div>
               </div>
             </div>
@@ -515,10 +673,10 @@ export default class Landing extends React.PureComponent {
           <div style={parallaxHome}>
             <div style={homeBox}>
               <span style={homeText}>
-                There's no wifi in the forest, but we promise you'll find a better connection.
+                There's no wifi in the forest, but we promise you'll have a better connection.
               </span>
             </div>
-              <img style={tentFPR2} src="http://localhost:8000/001-tent.png" />
+              <img style={tentFPR2} src="http://localhost:8000/icons/001-tent.png" />
           </div>
           <div style={cont}>
             <div style={logoStyle}>
@@ -547,9 +705,9 @@ export default class Landing extends React.PureComponent {
                 <br/>
                 </p>
                 <div style={fullPage}>
-                  <img style={tentFPR} src="http://localhost:8000/001-tent.png" onTouchTap={()=>this.scrollDown(2600)}/>
-                  <img style={packFPR} src="http://localhost:8000/002-backpack.png" onTouchTap={()=>this.scrollDown(1800)}/>
-                  <img style={poleFPR} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(800)}/>
+                  <img style={tentFPR} src="http://localhost:8000/icons/001-tent.png" onTouchTap={()=>this.scrollDown(2600)}/>
+                  <img style={packFPR} src="http://localhost:8000/icons/002-backpack.png" onTouchTap={()=>this.scrollDown(1800)}/>
+                  <img style={poleFPR} src="http://localhost:8000/icons/003-spinning.png" onTouchTap={()=>this.scrollDown(800)}/>
                 </div>
               </div>
 
@@ -578,7 +736,7 @@ export default class Landing extends React.PureComponent {
               </span>
             </div>
 
-              <img style={poleFPR2} src="http://localhost:8000/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
+              <img style={poleFPR2} src="http://localhost:8000/icons/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
 
           </div>
 
@@ -599,7 +757,7 @@ export default class Landing extends React.PureComponent {
               -Norwegian Proverb
               </span>
             </div>
-            <img style={packFPR2} src="http://localhost:8000/002-backpack.png" onTouchTap={()=>this.scrollDown(1680)}/>
+            <img style={packFPR2} src="http://localhost:8000/icons/002-backpack.png" onTouchTap={()=>this.scrollDown(1680)}/>
           </div>
 
           <div style={mainStyle}>
@@ -618,7 +776,7 @@ export default class Landing extends React.PureComponent {
                 There's no wifi in the forest, but we promise you'll find a better connection.
               </span>
             </div>
-              <img style={tentFPR2} src="http://localhost:8000/001-tent.png" />
+              <img style={tentFPR2} src="http://localhost:8000/icons/001-tent.png" />
           </div>
           <div style={cont}>
             <div style={logoStyle}>
@@ -630,7 +788,26 @@ export default class Landing extends React.PureComponent {
           </div>
 
         </Responsive>
-      </div>
+          <Dialog
+            title="Log In"
+            actions={actions}
+            modal={false}
+            open={this.state.open}
+            onRequestClose={this.handleClose}
+            style={logIn}
+          >
+
+          <input style={email} onChange={this.handleEmail} value={this.state.email} type="text" placeholder="Email" /><br/>
+          <input style={password} onChange={this.handlePassword} value={this.state.password} type="password" placeholder="Password" /><br/>
+          <input style={submit} type="submit" onTouchTap={this.signUp}/>
+          <h3>Sign Up</h3>
+          <input style={name} onChange={this.handleSignUpName} value={this.state.name} type="text" placeholder="Name" /><br/>
+          <input style={email} onChange={this.handleSignUpEmail} value={this.state.email} type="text" placeholder="Email" /><br/>
+          <input style={password} onChange={this.handleSignUpPassword} value={this.state.password} type="password" placeholder="Password" /><br/>
+          <input style={submit} type="submit" onTouchTap={this.signUp}/>
+
+        </Dialog>
+        </div>
 
 
     );
