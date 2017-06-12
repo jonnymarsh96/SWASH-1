@@ -212,7 +212,6 @@ export default class Landing extends React.PureComponent {
     const mainStyle={
       display:"flex",
       flexDirection:"row",
-
       marginTop:"0px",
       height:"334px",
     }
@@ -261,7 +260,8 @@ export default class Landing extends React.PureComponent {
       backgroundRepeat:"no-repeat",
       marginTop:"0px",
       borderRadius:"0px",
-
+      display:"flex",
+      flexDirection:"row",
     }
     const trekker={
       position:"relative",
@@ -343,12 +343,21 @@ export default class Landing extends React.PureComponent {
       borderRadius:"5px",
       border:"1px solid rgba(72,127,60, 0.8) "
     }
+    const brands={
+      color:"#",
+      padding:"20px",
+      fontSize:"1em",
+      fontFamily:"Patrick Hand SC",
+      textAlign:"center",
+      color:"#F1A524",
+    }
     const pescText={
-      color:"#ffffff",
+      color:"#FFFFFF",
       padding:"20px",
       fontSize:"2em",
       fontFamily:"Patrick Hand SC",
       textAlign:"center",
+
     }
     const pescLink={
       height:"100px",
@@ -363,7 +372,7 @@ export default class Landing extends React.PureComponent {
 
 
     const homeBox={
-      height:"200px",
+      height:"270px",
       width:"40%",
       display:"flex",
       alignContent:"center",
@@ -375,7 +384,7 @@ export default class Landing extends React.PureComponent {
     const homeText={
       color:"#ffffff",
       padding:"20px",
-      fontSize:"2.5em",
+      fontSize:"2em",
       fontFamily:"Patrick Hand SC",
       textAlign:"center",
       fontweight:"bold",
@@ -393,7 +402,7 @@ export default class Landing extends React.PureComponent {
 
 
     const trekBox={
-      height:"200px",
+      height:"270px",
       width:"40%",
       display:"flex",
       alignContent:"center",
@@ -493,7 +502,7 @@ export default class Landing extends React.PureComponent {
     const poleFPR2={
       width:"64px",
       margin:"0 auto",
-      marginTop:"40px",
+      marginTop:"20px",
     }
     const fullPage={
       width:"70%",
@@ -529,12 +538,7 @@ export default class Landing extends React.PureComponent {
         style={button}
         onTouchTap={this.handleClose}
       />,
-      <FlatButton
-        label="Submit"
-        style={button}
-        keyboardFocused={true}
-        onTouchTap={this.handleClose}
-      />,
+
     ];
     const button={
 
@@ -550,14 +554,14 @@ export default class Landing extends React.PureComponent {
     }
     const email={
       width:"80%",
-      height:"50px",
+      height:"40px",
       border:"1px solid #FFDC00",
       borderRadius:"3px",
       margin:"30px",
     }
     const name={
       width:"80%",
-      height:"50px",
+      height:"40px",
       border:"1px solid #FFDC00",
       borderRadius:"3px",
       margin:"30px",
@@ -565,18 +569,50 @@ export default class Landing extends React.PureComponent {
     }
     const password={
       width:"80%",
-      height:"50px",
+      height:"40px",
       border:"1px solid #FFDC00",
       borderRadius:"3px",
       margin:"30px",
     }
     const submit={
       width:"100px",
-      height:"50px",
+      height:"30px",
       border:"1px solid #FFDC00",
       borderRadius:"3px",
-      margin:"30px",
+      margin:"10px",
       color:"#000000"
+    }
+    const pescBuy={
+      height:"100px",
+      width:"10%",
+      borderRadius:"3px",
+      background:"rgba(72,127,60, 0.8)",
+      margin:"0 auto",
+      marginTop:"40px",
+      display:"flex",
+      flexDirection:"row",
+      padding:"10px",
+      fontSize:"1.4em"
+    }
+    const trekBuy={
+      height:"100px",
+      width:"10%",
+      marginTop:"40px",
+      borderRadius:"3px",
+      background:"rgba(18,12,133, 0.8)",
+      margin:"0 auto",
+      display:"flex",
+      flexDirection:"column",
+    }
+    const homeBuy={
+      height:"100px",
+      width:"10%",
+      marginTop:"20px",
+      borderRadius:"3px",
+      background:"rgba(120,69,26, 0.8)",
+      margin:"0 auto",
+      display:"flex",
+      flexDirection:"column",
     }
 
 
@@ -625,19 +661,20 @@ export default class Landing extends React.PureComponent {
               </div>
             </div>
             <span style={pescText}>
-              for our fisherman
+
             </span>
           </div>
           <div style={parallax}>
             <div style={pescBox}>
               <span style={pescText}>
-              "Most of the world is covered by water. A fisherman's job is simple: Pick out the best parts."<br/>
-              -Charles Waterman
+              This subscription will send, to your door, FISHING clothes fresher than a brown trout caught straight out the Chatahoochee River, every stinkin month.<br/>
+              <span style={brands}>
+                Features brands like Cloumbia PFG, Simms, Patagonia and more..</span>
               </span>
             </div>
-
+            <div style={pescBuy}>BUY<br/>NOW
               <img style={poleFPR2} src="http://localhost:8000/icons/003-spinning.png" onTouchTap={()=>this.scrollDown(1000)}/>
-
+            </div>
           </div>
 
           <div style={mainStyle}>
@@ -653,11 +690,13 @@ export default class Landing extends React.PureComponent {
           <div style={parallaxTrek}>
             <div style={trekBox}>
               <span style={trekText}>
-              "The one who wonders, finds a new path"<br/>
-              -Norwegian Proverb
+              If you like taking in the wild on your stroll up (or across). We're betting you'll like it even more in our box of monthly hand picked selection of comfy, hi-tech mountain garb.<br/>
+              <span style={brands}> Featuring Brands such as Mountain Khaki, Kavu, NorthFace and more...</span>
               </span>
             </div>
-            <img style={packFPR2} src="http://localhost:8000/icons/002-backpack.png" onTouchTap={()=>this.scrollDown(1680)}/>
+            <div style={trekBuy}>BUY NOW
+              <img style={packFPR2} src="http://localhost:8000/icons/002-backpack.png" onTouchTap={()=>this.scrollDown(1680)}/>
+            </div>
           </div>
 
           <div style={mainStyle}>
@@ -673,10 +712,16 @@ export default class Landing extends React.PureComponent {
           <div style={parallaxHome}>
             <div style={homeBox}>
               <span style={homeText}>
-                There's no wifi in the forest, but we promise you'll have a better connection.
+              Our premium selection of the most functional, comfortable, practicle packables on the market makes you king of hanging
+               by the fire with the buds, And might just soften the blow when you get a lil dirt in your oatmeal.<br/>
+              <span style={brands}>
+                Features brands: NorthFace, Marmot, Patagonia, Moutain Hardware and even more...
+              </span>
               </span>
             </div>
+            <div style={homeBuy}>BUY NOW
               <img style={tentFPR2} src="http://localhost:8000/icons/001-tent.png" />
+            </div>
           </div>
           <div style={cont}>
             <div style={logoStyle}>
@@ -731,8 +776,11 @@ export default class Landing extends React.PureComponent {
           <div style={parallax}>
             <div style={pescBox}>
               <span style={pescText}>
-              "Most of the world is covered by water. A fisherman's job is simple: Pick out the best parts."<br/>
-              -Charles Waterman
+                Our premium selection of the most functional, comfortable, practicle packables on the market makes you king of hanging
+                 by the fire with the buds, And might just soften the blow when you get a lil dirt in your oatmeal.<br/>
+                <span style={brands}>
+                  Features brands: NorthFace, Marmot, Patagonia, Moutain Hardware and even more...
+                </span>
               </span>
             </div>
 
